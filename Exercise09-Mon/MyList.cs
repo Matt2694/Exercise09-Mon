@@ -22,10 +22,10 @@ namespace Exercise09_Mon
         public void Insert(int index, object input)
         {
             Node newNode = new Node(input);
-            Node oldNode = (Node)Search(index);
-            newNode.Next = oldNode;
-            Node olderNode = (Node)Search(index - 1);
-            olderNode.Next = newNode;
+            Node beforeNode = (Node)Search(index - 1);
+            Node afterNode = beforeNode.Next;
+            newNode.Next = afterNode;
+            beforeNode.Next = newNode;
         }
         public void Delete()
         {
@@ -50,6 +50,7 @@ namespace Exercise09_Mon
         }
         public void SortNr()
         {
+            Node holder = Head;
             Node nPoint1 = Head;
             Node nPoint2 = nPoint1.Next;
             Node nPoint3 = nPoint2.Next;
@@ -60,8 +61,8 @@ namespace Exercise09_Mon
                 if(cPoint1.Nr > cPoint2.Nr)
                 {
                     Head = nPoint2;
+                    nPoint2.Next = holder;
                     nPoint1.Next = nPoint3;
-                    nPoint2.Next = nPoint1;
                 }
             }
         }
