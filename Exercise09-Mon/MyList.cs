@@ -48,6 +48,23 @@ namespace Exercise09_Mon
             }
             return point;
         }
+        public void SortNr()
+        {
+            Node nPoint1 = Head;
+            Node nPoint2 = nPoint1.Next;
+            Node nPoint3 = nPoint2.Next;
+            while(nPoint3 != null)
+            {
+                ClubMember cPoint1 = (ClubMember)nPoint1.Data;
+                ClubMember cPoint2 = (ClubMember)nPoint2.Data;
+                if(cPoint1.Nr > cPoint2.Nr)
+                {
+                    Head = nPoint2;
+                    nPoint1.Next = nPoint3;
+                    nPoint2.Next = nPoint1;
+                }
+            }
+        }
         public override string ToString()
         {
             string output = "";

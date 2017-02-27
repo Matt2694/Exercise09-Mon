@@ -23,15 +23,18 @@ namespace Exercise09_Mon
             linkedList.Insert(1, clubMember3);
             Console.WriteLine(linkedList.ToString());
             Console.ReadKey();
-            linkedList.Delete(1);
+            linkedList.SortNr();
             Console.WriteLine(linkedList.ToString());
             Console.ReadKey();
-            linkedList.Delete();
-            linkedList.Delete();
-            linkedList.Delete();
-            linkedList.Delete();
-            Console.WriteLine(linkedList.ToString());
-            Console.ReadKey();
+            //linkedList.Delete(1);
+            //Console.WriteLine(linkedList.ToString());
+            //Console.ReadKey();
+            //linkedList.Delete();
+            //linkedList.Delete();
+            //linkedList.Delete();
+            //linkedList.Delete();
+            //Console.WriteLine(linkedList.ToString());
+            //Console.ReadKey();
         }
     }
 }
