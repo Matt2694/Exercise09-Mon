@@ -39,6 +39,10 @@ namespace Exercise09_Mon
         }
         public object Search(int index)
         {
+            if(Head == null)
+            {
+                throw new Exception();
+            }
             int counter = 0;
             Node point = Head;
             while (point != null && counter < index)
