@@ -44,14 +44,7 @@ namespace Exercise09_Mon
                 point = point.Next;
                 counter++;
             }
-            try
-            {
-                return point;
-            }
-            catch (NullReferenceException)
-            {
-                return null;
-            }
+            return point;
         }
         public override string ToString()
         {
