@@ -33,7 +33,9 @@ namespace Exercise09_Mon
         }
         public void Delete(int index)
         {
-
+            Node nodeToDelete = (Node)Search(index);
+            Node nodeBefore = (Node)Search(index - 1);
+            nodeBefore.Next = nodeToDelete.Next;
         }
         public object Search(int index)
         {

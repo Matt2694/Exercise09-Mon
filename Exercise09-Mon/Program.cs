@@ -17,11 +17,13 @@ namespace Exercise09_Mon
             ClubMember clubMember4 = new ClubMember(3, "Carmelo", "Anthony", 30);
             linkedList.Insert(clubMember1);
             linkedList.Insert(clubMember2);
-            //linkedList.Insert(clubMember3);
             linkedList.Insert(clubMember4);
             Console.WriteLine(linkedList.ToString());
             Console.ReadKey();
             linkedList.Insert(1, clubMember3);
+            Console.WriteLine(linkedList.ToString());
+            Console.ReadKey();
+            linkedList.Delete(1);
             Console.WriteLine(linkedList.ToString());
             Console.ReadKey();
             linkedList.Delete();
