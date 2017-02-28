@@ -64,6 +64,8 @@ namespace Exercise09_Mon
             
             return point;
         }
+
+        //doesn't work with any size
         public void SortNr()
         {
             Node current = Head;
@@ -73,7 +75,7 @@ namespace Exercise09_Mon
             Node sortedListHead = null;
             Node sortedListTail = sortedListHead;
             int i = 0;
-            do
+            while (i < 4)
             {
                 current = Head;
                 min = current;
