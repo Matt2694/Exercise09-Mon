@@ -33,9 +33,16 @@ namespace Exercise09_Mon
         }
         public void Delete(int index)
         {
-            Node nodeToDelete = (Node)Search(index);
-            Node nodeBefore = (Node)Search(index - 1);
-            nodeBefore.Next = nodeToDelete.Next;
+            if (index == 0)
+            {
+                Head = Head.Next;
+            }
+            else
+            {
+                Node nodeToDelete = (Node)Search(index);
+                Node nodeBefore = (Node)Search(index - 1);
+                nodeBefore.Next = nodeToDelete.Next;
+            }
         }
         public object Search(int index)
         {
@@ -50,25 +57,60 @@ namespace Exercise09_Mon
                 point = point.Next;
                 counter++;
             }
+            
             return point;
         }
         public void SortNr()
         {
-            Node holder = Head;
-            Node nPoint1 = Head;
-            Node nPoint2 = nPoint1.Next;
-            Node nPoint3 = nPoint2.Next;
-            while(nPoint3 != null)
+            Node current = Head;
+            Node previous = current;
+            Node min = current;
+            Node minPrevious = min;
+            Node sortedListHead = null;
+            Node sortedListTail = sortedListHead;
+            int i = 0;
+            while (i < 4)
             {
-                ClubMember cPoint1 = (ClubMember)nPoint1.Data;
-                ClubMember cPoint2 = (ClubMember)nPoint2.Data;
-                if(cPoint1.Nr > cPoint2.Nr)
+                current = Head;
+                min = current;
+                minPrevious = min;
+                while (current != null)
                 {
-                    Head = nPoint2;
-                    nPoint2.Next = holder;
-                    nPoint1.Next = nPoint3;
+                    ClubMember _currentData = (ClubMember)current.Data;
+                    ClubMember _minData = (ClubMember)min.Data;
+                    if (_currentData.Nr < _minData.Nr)
+                    {
+                        min = current;
+                        minPrevious = previous;
+                    }
+                    previous = current;
+                    current = current.Next;
                 }
+                if (min == Head)
+                {
+                    Head = Head.Next;
+                }
+                else if (min.Next == null)
+                {
+                    minPrevious.Next = null;
+                }
+                else
+                {
+                    minPrevious.Next = minPrevious.Next.Next;
+                }
+                if (sortedListHead != null)
+                {
+                    sortedListTail.Next = min;
+                    sortedListTail = sortedListTail.Next;
+                }
+                else
+                {
+                    sortedListHead = min;
+                    sortedListTail = sortedListHead;
+                }
+                i++;
             }
+            Head = sortedListHead;
         }
         public override string ToString()
         {

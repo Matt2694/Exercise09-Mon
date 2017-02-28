@@ -10,6 +10,30 @@ namespace Exercise09_Mon
     {
         static void Main(string[] args)
         {
+            Exercise1();
+            Exercise2();
+            //linkedList.Insert(1, clubMember3);
+            //Console.WriteLine(linkedList.ToString());
+            //Console.ReadKey();
+            //Node search;
+            //search = (Node)linkedList.Search(0);
+            //Console.WriteLine(search.ToString());
+            //Console.ReadKey();
+            //linkedList.SortNr();
+            //Console.WriteLine(linkedList.ToString());
+            //Console.ReadKey();
+            //linkedList.Delete(0);
+            //Console.WriteLine(linkedList.ToString());
+            //Console.ReadKey();
+        }
+
+        private static void Exercise2()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void Exercise1()
+        {
             MyList linkedList = new MyList();
             ClubMember clubMember1 = new ClubMember(0, "Matt", "Peterson", 18);
             ClubMember clubMember2 = new ClubMember(1, "Matt", "Perry", 26);
@@ -17,24 +41,16 @@ namespace Exercise09_Mon
             ClubMember clubMember4 = new ClubMember(3, "Carmelo", "Anthony", 30);
             linkedList.Insert(clubMember1);
             linkedList.Insert(clubMember2);
+            linkedList.Insert(clubMember3);
             linkedList.Insert(clubMember4);
             Console.WriteLine(linkedList.ToString());
             Console.ReadKey();
-            linkedList.Insert(1, clubMember3);
+            linkedList.Delete();
+            linkedList.Delete();
+            linkedList.Delete();
+            linkedList.Delete();
             Console.WriteLine(linkedList.ToString());
             Console.ReadKey();
-            linkedList.SortNr();
-            Console.WriteLine(linkedList.ToString());
-            Console.ReadKey();
-            //linkedList.Delete(1);
-            //Console.WriteLine(linkedList.ToString());
-            //Console.ReadKey();
-            //linkedList.Delete();
-            //linkedList.Delete();
-            //linkedList.Delete();
-            //linkedList.Delete();
-            //Console.WriteLine(linkedList.ToString());
-            //Console.ReadKey();
         }
     }
 }

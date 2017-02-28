@@ -13,7 +13,7 @@ namespace Exercise09_Mon
         public Node(object o)
         {
             Data = o;
-            Next = null;
+            //Next = null;
         }
         public override string ToString()
         {
