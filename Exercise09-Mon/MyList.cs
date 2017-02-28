@@ -29,13 +29,17 @@ namespace Exercise09_Mon
         }
         public void Delete()
         {
+            Node temp = Head;
             Head = Head.Next;
+            temp.Next = null;
         }
         public void Delete(int index)
         {
             if (index == 0)
             {
+                Node temp = Head;
                 Head = Head.Next;
+                temp.Next = null;
             }
             else
             {
@@ -69,7 +73,7 @@ namespace Exercise09_Mon
             Node sortedListHead = null;
             Node sortedListTail = sortedListHead;
             int i = 0;
-            while (i < 4)
+            do
             {
                 current = Head;
                 min = current;
@@ -109,7 +113,7 @@ namespace Exercise09_Mon
                     sortedListTail = sortedListHead;
                 }
                 i++;
-            }
+            } while (sortedListTail.Next != null);
             Head = sortedListHead;
         }
         public override string ToString()
