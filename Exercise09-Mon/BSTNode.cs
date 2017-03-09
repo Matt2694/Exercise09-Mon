@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Exercise09_Mon
 {
-    class Node
+    class BSTNode
     {
-        public Node Next { get; set; }
-        public object Data { get; set; }
-        public Node(object o)
+        public BSTNode NextLeft { get; set; }
+        public BSTNode NextRight { get; set; }
+        public IComparable Data { get; set; }
+        public BSTNode(IComparable o)
         {
             Data = o;
         }

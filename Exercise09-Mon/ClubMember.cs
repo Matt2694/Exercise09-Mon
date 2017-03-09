@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise09_Mon
 {
-    class ClubMember
+    class ClubMember : IComparable
     {
         public int Nr { get; set; }
         public string Fname { get; set; }
@@ -24,6 +24,41 @@ namespace Exercise09_Mon
             string output;
             output = Nr + " " + Fname + " " + Lname + " " + Age;
             return output;
+        }
+
+        public int CompareTo(object obj)
+        {
+            ClubMember cM = (ClubMember)obj;
+            if(this.Nr > cM.Nr)
+            {
+                return 1;
+            }
+            else if(this.Nr < cM.Nr)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            ClubMember cM = (ClubMember)obj;
+            if(this.Nr == cM.Nr && this.Fname.Equals(cM.Fname) && this.Lname.Equals(cM.Lname) && this.Age == cM.Age)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return Nr.GetHashCode() + Fname.GetHashCode() + Lname.GetHashCode() + Age.GetHashCode();
         }
     }
 }

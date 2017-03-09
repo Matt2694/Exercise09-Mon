@@ -64,60 +64,36 @@ namespace Exercise09_Mon
             
             return point;
         }
-
-        //doesn't work with any size
+        
         public void SortNr()
         {
-            Node current = Head;
-            Node previous = current;
-            Node min = current;
-            Node minPrevious = min;
-            Node sortedListHead = null;
-            Node sortedListTail = sortedListHead;
-            int i = 0;
-            while (i < 4)
+            Node pointer = Head;
+            bool swapped = false;
+            do
             {
-                current = Head;
-                min = current;
-                minPrevious = min;
-                while (current != null)
+                pointer = Head;
+                swapped = false;
+                while (pointer.Next != null)
                 {
-                    ClubMember _currentData = (ClubMember)current.Data;
-                    ClubMember _minData = (ClubMember)min.Data;
-                    if (_currentData.Nr < _minData.Nr)
+                    ClubMember a = (ClubMember)pointer.Data;
+                    ClubMember b = (ClubMember)pointer.Next.Data;
+                    if (a.Nr > b.Nr)
                     {
-                        min = current;
-                        minPrevious = previous;
+                        Change(pointer, pointer.Next);
+                        swapped = true;
                     }
-                    previous = current;
-                    current = current.Next;
+                    pointer = pointer.Next;
                 }
-                if (min == Head)
-                {
-                    Head = Head.Next;
-                }
-                else if (min.Next == null)
-                {
-                    minPrevious.Next = null;
-                }
-                else
-                {
-                    minPrevious.Next = minPrevious.Next.Next;
-                }
-                if (sortedListHead != null)
-                {
-                    sortedListTail.Next = min;
-                    sortedListTail = sortedListTail.Next;
-                }
-                else
-                {
-                    sortedListHead = min;
-                    sortedListTail = sortedListHead;
-                }
-                i++;
-            } while (sortedListTail.Next != null);
-            Head = sortedListHead;
+            } while (swapped == true);
         }
+
+        private void Change(Node nodeA, Node nodeB)
+        {
+            object tmpData = nodeA.Data;
+            nodeA.Data = nodeB.Data;
+            nodeB.Data = tmpData;
+        }
+
         public override string ToString()
         {
             string output = "";
@@ -128,6 +104,44 @@ namespace Exercise09_Mon
                 point = point.Next;
             }
             return output;
+        }
+
+        public bool Contains(object data)
+        {
+            if (Head == null)
+            {
+                throw new Exception();
+            }
+            Node point = Head;
+            while (point != null)
+            {
+                if (point.Data.Equals(data))
+                {
+                    return true;
+                }
+                point = point.Next;
+            }
+            return false;
+        }
+
+        public int IndexOf(object data)
+        {
+            if (Head == null)
+            {
+                throw new Exception();
+            }
+            int counter = 0;
+            Node point = Head;
+            while (point != null)
+            {
+                if (point.Data.Equals(data))
+                {
+                    return counter;
+                }
+                point = point.Next;
+                counter++;
+            }
+            throw new Exception();
         }
     }
 }
