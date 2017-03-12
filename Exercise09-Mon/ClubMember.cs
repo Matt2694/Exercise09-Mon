@@ -28,25 +28,33 @@ namespace Exercise09_Mon
 
         public int CompareTo(object obj)
         {
-            ClubMember cM = (ClubMember)obj;
-            if(this.Nr > cM.Nr)
+            int Result = 0;
+            ClubMember Other = (ClubMember)obj;
+
+            Result = Nr.CompareTo(Other.Nr);
+
+            if (Result == 0)
             {
-                return 1;
+                Result = Fname.CompareTo(Other.Fname);
             }
-            else if(this.Nr < cM.Nr)
+
+            if (Result == 0)
             {
-                return -1;
+                Result = Lname.CompareTo(Other.Lname);
             }
-            else
+
+            if (Result == 0)
             {
-                return 0;
+                Result = Age.CompareTo(Other.Age);
             }
+
+            return Result;
         }
 
         public override bool Equals(object obj)
         {
             ClubMember cM = (ClubMember)obj;
-            if(this.Nr == cM.Nr && this.Fname.Equals(cM.Fname) && this.Lname.Equals(cM.Lname) && this.Age == cM.Age)
+            if(Nr == cM.Nr && Fname.Equals(cM.Fname) && Lname.Equals(cM.Lname) && Age == cM.Age)
             {
                 return true;
             }

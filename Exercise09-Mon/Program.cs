@@ -10,6 +10,7 @@ namespace Exercise09_Mon
     class Program
     {
         private static MyList linkedList = new MyList();
+        private static MyBST BST = new MyBST();
         private static Random rnd = new Random();
 
         static void Main(string[] args)
@@ -41,6 +42,7 @@ namespace Exercise09_Mon
                 case 3: Exercise3(); break;
                 case 4: Exercise4(smallLinear, largeLinear); break;
                 case 5: Exercise5(smallBinary, largeBinary); break;
+                case 6: Exercise6(); break;
             }
         }
 
@@ -131,6 +133,21 @@ namespace Exercise09_Mon
             SearchBinary(smallBinary);
             Console.ReadKey();
             SearchBinary(largeBinary);
+            Console.ReadKey();
+        }
+
+        private void Exercise6()
+        {
+            Console.WriteLine("Exercise 6");
+            ClubMember clubMember1 = new ClubMember(0, "Matt", "Peterson", 18);
+            ClubMember clubMember2 = new ClubMember(1, "Matt", "Perry", 26);
+            ClubMember clubMember3 = new ClubMember(2, "Anthony", "Peterson", 52);
+            ClubMember clubMember4 = new ClubMember(3, "Carmelo", "Anthony", 30);
+            BST.Insert(clubMember1);
+            BST.Insert(clubMember2);
+            BST.Insert(clubMember3);
+            BST.Insert(clubMember4);
+            Console.WriteLine(clubMember2.ToString() + " " + BST.Search(clubMember2).ToString());
             Console.ReadKey();
         }
 

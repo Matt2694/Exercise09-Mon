@@ -8,8 +8,8 @@ namespace Exercise09_Mon
 {
     class BSTNode
     {
-        public BSTNode NextLeft { get; set; }
-        public BSTNode NextRight { get; set; }
+        public BSTNode Left { get; set; }
+        public BSTNode Right { get; set; }
         public IComparable Data { get; set; }
         public BSTNode(IComparable o)
         {
@@ -22,4 +22,5 @@ namespace Exercise09_Mon
             return output;
         }
     }
+
 }
